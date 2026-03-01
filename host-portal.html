@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Host Dashboard - HEMPRAVIG Groups</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Modern Font: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="s.css">
+    <style>
+        body { background-color: var(--bg-light); padding-top: 80px; }
+        .navbar { background-color: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-sm); }
+        .navbar .logo, .navbar .nav-links a { color: var(--text-main); }
+        .navbar .nav-actions .btn-text { color: var(--text-main); }
+        
+        .dashboard-container { max-width: 1200px; margin: 2rem auto; padding: 0 5%; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .dashboard-header h1 { font-size: 2rem; }
+        
+        .portal-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        @media (max-width: 900px) { .portal-grid { grid-template-columns: 1fr; } }
+        
+        .panel { background: white; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); margin-bottom: 2rem; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .panel-header h2 { font-size: 1.25rem; margin: 0; }
+        
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--bg-light); padding: 1rem; border-radius: var(--radius-md); text-align: center; }
+        .stat-number { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; }
+
+        .request-card { display: flex; justify-content: space-between; align-items: center; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 1rem; transition: var(--transition); }
+        .request-card:hover { border-color: var(--primary-light); }
+        .request-info h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .request-meta { color: var(--text-muted); font-size: 0.875rem; }
+        .request-actions { display: flex; gap: 0.5rem; }
+        
+        .btn-sm { padding: 0.4rem 0.8rem; font-size: 0.875rem; border-radius: 4px; cursor: pointer; border: none; font-weight: 600; transition: var(--transition); }
+        .btn-approve { background: var(--primary); color: white; }
+        .btn-approve:hover { background: var(--primary-dark); }
+        .btn-decline { background: #F1F5F9; color: var(--text-main); }
+        .btn-decline:hover { background: #E2E8F0; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="logo.jpg" alt="HEMPRAVIG Logo" class="brand-logo"> HEMPRAVIG Groups</a>
+            <div class="mobile-menu-toggle" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Host Dashboard</a></li>
+                <li><a href="#">Listings</a></li>
+                <li><a href="#">Calendar</a></li>
+                <li><a href="#">Messages</a></li>
+            </ul>
+            <div class="nav-actions" id="navActions">
+                <a href="#" class="btn-text">Profile</a>
+                <a href="index.html" class="btn-primary">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header reveal">
+            <h1>Host Overview</h1>
+            <button class="btn-primary"><i class="fa-solid fa-plus"></i> Add Listing</button>
+        </div>
+        
+        <div class="stat-grid reveal">
+            <div class="stat-card">
+                <div class="stat-number">$1,250</div>
+                <div class="stat-label">This Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Upcoming Stays</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Avg Rating</div>
+            </div>
+        </div>
+
+        <div class="portal-grid">
+            <div class="main-content">
+                <div class="panel reveal">
+                    <div class="panel-header">
+                        <h2>Pending Requests</h2>
+                    </div>
+                    <div class="request-card">
+                        <div class="request-info">
+                            <h3>Sarah Jenkins</h3>
+                            <div class="request-meta">Dec 10 - Dec 14 (4 nights) • 2 Guests</div>
+                            <div class="request-meta" style="color:var(--primary); margin-top:0.25rem;">$360 payout</div>
+                        </div>
+                        <div class="request-actions">
+                            <button class="btn-sm btn-decline">Decline</button>
+                            <button class="btn-sm btn-approve">Approve</button>
+                        </div>
+                    </div>
+                    <div class="request-card">
+                        <div class="request-info">
+                            <h3>Michael Chen</h3>
+                            <div class="request-meta">Jan 05 - Jan 10 (5 nights) • 1 Guest</div>
+                            <div class="request-meta" style="color:var(--primary); margin-top:0.25rem;">$450 payout</div>
+                        </div>
+                        <div class="request-actions">
+                            <button class="btn-sm btn-decline">Decline</button>
+                            <button class="btn-sm btn-approve">Approve</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="panel reveal" style="transition-delay: 0.1s;">
+                    <div class="panel-header">
+                        <h2>My Listings</h2>
+                        <a href="#" class="btn-text" style="padding:0">All Listings</a>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                        <div style="width:60px; height:60px; background-image:url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=400'); background-size:cover; border-radius:8px;"></div>
+                        <div>
+                            <h4 style="margin:0;">Rustic Tuscan Villa</h4>
+                            <p style="color:var(--text-muted); font-size:0.875rem;">Florence, Italy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="panel reveal" style="transition-delay: 0.2s;">
+                    <div class="panel-header">
+                        <h2>Hosting Tips</h2>
+                    </div>
+                    <p style="color:var(--text-muted); font-size:0.875rem; margin-bottom:1rem;">Enhance your listing to attract more guests.</p>
+                    <ul style="color:var(--text-muted); font-size:0.875rem; padding-left:1.5rem; list-style-type:disc;">
+                        <li style="margin-bottom:0.5rem;">Upload high-quality photos.</li>
+                        <li style="margin-bottom:0.5rem;">Respond to requests within 24 hours.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

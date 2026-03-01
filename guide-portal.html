@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Dashboard - HEMPRAVIG Groups</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <!-- Modern Font: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="s.css">
+    <style>
+        body { background-color: var(--bg-light); padding-top: 80px; }
+        .navbar { background-color: rgba(255, 255, 255, 0.95); box-shadow: var(--shadow-sm); }
+        .navbar .logo, .navbar .nav-links a { color: var(--text-main); }
+        .navbar .nav-actions .btn-text { color: var(--text-main); }
+        
+        .dashboard-container { max-width: 1200px; margin: 2rem auto; padding: 0 5%; }
+        .dashboard-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .dashboard-header h1 { font-size: 2rem; }
+        
+        .portal-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+        @media (max-width: 900px) { .portal-grid { grid-template-columns: 1fr; } }
+        
+        .panel { background: white; border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid var(--border); margin-bottom: 2rem; }
+        .panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+        .panel-header h2 { font-size: 1.25rem; margin: 0; }
+        
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+        .stat-card { background: var(--bg-light); padding: 1rem; border-radius: var(--radius-md); text-align: center; }
+        .stat-number { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .stat-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600; letter-spacing: 0.05em; }
+
+        .tour-agenda { list-style: none; padding: 0; }
+        .tour-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+        .tour-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .tour-time { min-width: 80px; font-weight: 600; color: var(--accent); }
+        .tour-details h4 { margin: 0 0 0.25rem 0; font-size: 1rem; }
+        .tour-details p { margin: 0; font-size: 0.875rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="logo.jpg" alt="HEMPRAVIG Logo" class="brand-logo"> HEMPRAVIG Groups</a>
+            <div class="mobile-menu-toggle" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Guide Dashboard</a></li>
+                <li><a href="#">My Tours</a></li>
+                <li><a href="#">Availability</a></li>
+                <li><a href="#">Messages</a></li>
+            </ul>
+            <div class="nav-actions" id="navActions">
+                <a href="#" class="btn-text">Profile</a>
+                <a href="index.html" class="btn-primary">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-header reveal">
+            <h1>Guide Overview</h1>
+            <button class="btn-primary"><i class="fa-solid fa-plus"></i> Create New Tour</button>
+        </div>
+        
+        <div class="stat-grid reveal">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Tours This Month</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">48</div>
+                <div class="stat-label">Total Guests</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">5.0</div>
+                <div class="stat-label">Avg Rating</div>
+            </div>
+        </div>
+
+        <div class="portal-grid">
+            <div class="main-content">
+                <div class="panel reveal">
+                    <div class="panel-header">
+                        <h2>Today's Agenda</h2>
+                        <span style="color:var(--text-muted); font-size:0.875rem;">Oct 12, 2026</span>
+                    </div>
+                    <ul class="tour-agenda">
+                        <li class="tour-item">
+                            <div class="tour-time">09:00 AM</div>
+                            <div class="tour-details">
+                                <h4>Historic Center Walking Tour</h4>
+                                <p>4 Guests • Meet at Main Plaza</p>
+                            </div>
+                        </li>
+                        <li class="tour-item">
+                            <div class="tour-time">02:00 PM</div>
+                            <div class="tour-details">
+                                <h4>Local Food Tasting</h4>
+                                <p>2 Guests • Meet at Central Market</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="panel reveal" style="transition-delay: 0.1s;">
+                    <div class="panel-header">
+                        <h2>Recent Reviews</h2>
+                    </div>
+                    <div style="border-bottom:1px solid var(--border); padding-bottom:1rem; margin-bottom:1rem;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                            <strong>John D.</strong>
+                            <span style="color:#FBBF24;"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span>
+                        </div>
+                        <p style="font-size:0.875rem; color:var(--text-muted);">"Amazing guide! Showed us hidden spots we would never have found on our own. Highly recommend."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="panel reveal" style="transition-delay: 0.2s;">
+                    <div class="panel-header">
+                        <h2>Active Tours</h2>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:1rem; margin-bottom:1rem;">
+                        <div style="width:60px; height:60px; background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=400'); background-size:cover; border-radius:8px;"></div>
+                        <div>
+                            <h4 style="margin:0;">Historic Center Walking Tour</h4>
+                            <p style="color:var(--text-muted); font-size:0.875rem;">$45/person</p>
+                        </div>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:1rem;">
+                        <div style="width:60px; height:60px; background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400'); background-size:cover; border-radius:8px;"></div>
+                        <div>
+                            <h4 style="margin:0;">Local Food Tasting</h4>
+                            <p style="color:var(--text-muted); font-size:0.875rem;">$60/person</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
