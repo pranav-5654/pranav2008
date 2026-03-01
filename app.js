@@ -133,8 +133,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.getElementById('authForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert(`${currentMode === 'login' ? 'Logging in' : 'Signing up'} as ${currentRole} - Feature coming soon!`);
-            authModal.classList.remove('active');
+            
+            if (currentRole === 'Tourist') {
+                window.location.href = 'guest-portal.html';
+            } else if (currentRole === 'Guide') {
+                window.location.href = 'guide-portal.html';
+            } else if (currentRole === 'Host') {
+                window.location.href = 'host-portal.html';
+            }
         });
     }
 });
+
